@@ -1,0 +1,21 @@
+@use "/src/styles/mixins.scss" as m;
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 45px 0 50px;
+
+    &__nav {
+        display: flex;
+        gap: 63px;
+    }
+
+    &__link {
+        @include m.text-style(black, 500, 24px);
+        text-decoration: none;
+        &.active {
+            text-decoration: underline;
+        }
+    }
+}
