@@ -7,7 +7,7 @@ export default function Header() {
         <header className="header">
             <img src={logo} alt="Logo de Kasa" />
             <nav className="header__nav">
-                <NavLink className="header__link" to="/kasa" end>Accueil</NavLink>
+                <NavLink className="header__link" to="/kasa/" end>Accueil</NavLink>
                 <NavLink className="header__link" to="/kasa/a-propos">À Propos</NavLink>
             </nav>
         </header>
