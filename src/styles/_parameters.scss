@@ -1,3 +1,8 @@
+// Variables
+$main-color: #FF6060;
+$content-margin: 0 100px;
+
+// Mixins
 @mixin text-style($color, $weight, $size) {
     color: $color;
     font-weight: $weight;

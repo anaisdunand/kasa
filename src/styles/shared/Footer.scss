@@ -1,4 +1,4 @@
-@use "/src/styles/mixins.scss" as m;
+@use "/src/styles/parameters.scss" as p;
 
 .footer {
     display: flex;
@@ -11,6 +11,6 @@
     margin-top: 50px;
 
     &__copyright {
-        @include m.text-style(white, 500, 24px);
+        @include p.text-style(white, 500, 24px);
     }
 }

@@ -1,0 +1,35 @@
+@use "/src/styles/parameters" as p;
+
+.item {
+    width: 100%;
+    background-color: rgba(246, 246, 246, 0.45);
+    border-radius: 5px;
+        
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 54px;
+        background-color: p.$main-color;
+        border-radius: 5px;
+        padding: 0 20px 0 15px;
+        cursor: pointer;
+    }
+
+    &__title {
+        @include p.text-style(white, 700, 24px);
+    }
+
+    &__chevron {
+        transition: transform 400ms ease-out;
+        &.open {
+            transform: rotate(-0.5turn)
+        }
+    }
+
+    &__content {
+        @include p.text-style(black, 400, 18px);
+        line-height: 142%;
+        padding: 16px 20px 20px;
+    }
+}

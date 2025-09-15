@@ -1,0 +1,15 @@
+@use "/src/styles/parameters" as p;
+
+// Reset CSS
+body, h1, h2, p, figure {
+    margin: 0;
+}
+
+// Global styles
+body {
+    font-family: "Montserrat";
+}
+
+main {
+    margin: p.$content-margin;
+}
