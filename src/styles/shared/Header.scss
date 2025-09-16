@@ -1,17 +1,13 @@
 @use "/src/styles/parameters" as p;
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 45px 0 50px;
+    @include p.header-display(45px 0 50px);
     margin: p.$content-margin;
 
     &__nav {
         display: flex;
         gap: 63px;
     }
-
     &__link {
         @include p.text-style(black, 500, 24px);
         text-decoration: none;

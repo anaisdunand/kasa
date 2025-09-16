@@ -1,10 +1,14 @@
-import "/src/styles/Home/RentalCard.scss"
+import { Link } from "react-router"
 
-export default function RentalCard() {
+import "/src/styles/pages/Home/RentalCard.scss"
+
+export default function RentalCard({ cover, title }) {
     return (
-        <figure className="card">
-            <img className="card__image" />
-            <figcaption className="card__title">Titre de la location</figcaption>
-        </figure>
+        <article className="card">
+            <img className="card__image" src={cover} />
+            <Link className="card__link" to="/kasa/logement">
+                <h2 className="card__title">{title}</h2>
+            </Link>
+        </article>
     )
 }

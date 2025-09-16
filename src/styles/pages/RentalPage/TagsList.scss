@@ -1,0 +1,17 @@
+@use "/src/styles/parameters" as p;
+
+.tags-list {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+
+    &__item {
+        min-width: 115px;
+        box-sizing: border-box;
+        @include p.text-style(white, 700, 14px);
+        text-align: center;
+        background-color: p.$main-color;
+        border-radius: 10px;
+        padding: 3px 6px;
+    }
+}

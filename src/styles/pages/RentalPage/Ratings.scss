@@ -1,0 +1,17 @@
+@use "/src/styles/parameters" as p;
+
+.ratings {
+    display: flex;
+    justify-content: space-between;
+    width: 196px;
+    margin-top: 20px;
+    
+    &__star {
+        display: inline-block;
+        width: 36px; height: 36px;
+        background: url("/src/assets/star.png");
+        &--active {
+            background: url("/src/assets/star-active.png");
+        }
+    }
+}

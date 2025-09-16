@@ -1,15 +1,18 @@
+import rentals from "/src/datas/rentals.json"
+import "/src/styles/pages/Home/RentalsList.scss"
+
 import RentalCard from "/src/components/Home/RentalCard"
-import "/src/styles/Home/RentalsList.scss"
 
 export default function RentalsList() {
     return (
         <div className="rentals">
-            <RentalCard />
-            <RentalCard />
-            <RentalCard />
-            <RentalCard />
-            <RentalCard />
-            <RentalCard />
+            {rentals.map(rental =>
+                <RentalCard
+                    key={rental.id}
+                    title={rental.title}
+                    cover={rental.cover}
+                />
+            )}
         </div>
     )
 }

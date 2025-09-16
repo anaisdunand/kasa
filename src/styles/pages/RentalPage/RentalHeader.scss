@@ -1,0 +1,12 @@
+@use "/src/styles/parameters" as p;
+
+.rental-header {
+    @include p.header-display(30px 0 24px);
+
+    &__title {
+        @include p.text-style(p.$main-color, 500, 36px);
+    }
+    &__subtitle {
+        @include p.text-style(black, 500, 18px);
+    }
+}

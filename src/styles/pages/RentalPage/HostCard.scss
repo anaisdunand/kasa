@@ -1,0 +1,19 @@
+@use "/src/styles/parameters" as p;
+
+.host-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 196px;
+
+    &__name {
+        @include p.text-style(p.$main-color, 500, 18px);
+        text-align: end;
+    }
+
+    &__avatar {
+        object-fit: cover;
+        width: 64px; height: 64px;
+        border-radius: 50%;
+    }
+}

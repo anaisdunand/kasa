@@ -7,4 +7,20 @@ $content-margin: 0 100px;
     color: $color;
     font-weight: $weight;
     font-size: $size;
+    line-height: 142.6%;
+}
+
+@mixin header-display($padding) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $padding;
+}
+
+@mixin banner-layer($justify) {
+    position: absolute;
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+    width: 100%; height: 100%;
 }
