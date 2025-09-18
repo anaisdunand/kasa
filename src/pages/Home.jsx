@@ -1,16 +1,25 @@
-import background from "/src/assets/home-banner.jpg"
-import "/src/styles/pages/Home/index.scss"
+import banner from "/src/assets/home-banner.jpg"
+import "/src/styles/pages/Home.scss"
 
 import Banner from "/src/components/shared/Banner"
-import RentalsList from "/src/components/Home/RentalsList"
+import RentalCard from "/src/components/Home/RentalCard"
 
-export default function Home() {
+export default function Home({ rentals }) {
     return (
         <section className="homepage">
-            <Banner modifier={"darker"} src={background} alt={"de paysage"}>
+            <Banner image={banner} modifier={"darker"}>
                 <h1 className="banner__title">Chez vous, partout et ailleurs</h1>
             </Banner>
-            <RentalsList />
+            <div className="homepage__rentals">
+                {rentals.map(rental =>
+                    <RentalCard
+                        key={rental.id}
+                        id={rental.id}
+                        title={rental.title}
+                        cover={rental.cover}
+                    />
+                )}
+            </div>
         </section>
     )
 }

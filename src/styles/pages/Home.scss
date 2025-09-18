@@ -1,0 +1,16 @@
+@use "/src/styles/parameters" as p;
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+
+    &__rentals {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px 60px;
+        background-color: #F6F6F6;
+        border-radius: p.$main-radius;
+        padding: 56px 50px 50px;
+    }
+}

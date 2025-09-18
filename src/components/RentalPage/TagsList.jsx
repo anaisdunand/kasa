@@ -1,11 +1,11 @@
-import "/src/styles/pages/RentalPage/TagsList.scss"
+import "/src/styles/components/RentalPage/TagsList.scss"
 
-export default function TagsList() {
+export default function TagsList({ tags }) {
     return (
         <ul className="tags-list">
-            <li className="tags-list__item">Tag</li>
-            <li className="tags-list__item">Tag</li>
-            <li className="tags-list__item">Tag</li>
+            {tags.map((tag, i) =>
+                <li key={i} className="tags-list__item">{tag}</li>
+            )}
         </ul>
     )
 }

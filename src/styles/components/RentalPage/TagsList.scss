@@ -8,10 +8,10 @@
     &__item {
         min-width: 115px;
         box-sizing: border-box;
+        background-color: p.$main-color;
+        border-radius: p.$item-radius;
         @include p.text-style(white, 700, 14px);
         text-align: center;
-        background-color: p.$main-color;
-        border-radius: 10px;
         padding: 3px 6px;
     }
 }

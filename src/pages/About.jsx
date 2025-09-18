@@ -1,5 +1,5 @@
 import about from "/src/datas/about.json"
-import background from "/src/assets/about-banner.jpg"
+import banner from "/src/assets/about-banner.jpg"
 import "/src/styles/pages/About.scss"
 
 import Banner from "/src/components/shared/Banner"
@@ -8,7 +8,7 @@ import DropItem from "/src/components/shared/DropItem"
 export default function About() {
     return (
         <section className="about">
-            <Banner modifier={"darker"} src={background} alt={"de paysage"} />
+            <Banner image={banner} modifier={"dark"} />
             <div className="about__infos">
                 {about.map(item => (
                     <DropItem

@@ -1,10 +1,10 @@
 @use "/src/styles/parameters" as p;
 
 .host-card {
+    max-width: 196px;
     display: flex;
     align-items: center;
     gap: 10px;
-    max-width: 196px;
 
     &__name {
         @include p.text-style(p.$main-color, 500, 18px);
@@ -12,8 +12,7 @@
     }
 
     &__avatar {
-        object-fit: cover;
-        width: 64px; height: 64px;
+        @include p.image-fit(64px);
         border-radius: 50%;
     }
 }

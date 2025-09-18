@@ -1,0 +1,42 @@
+@use "/src/styles/parameters" as p;
+
+.drop-item {
+    position: relative;
+    width: 100%; max-height: 54px;
+    border-radius: p.$item-radius;
+    overflow: hidden;
+    @include p.drop-transition(all);
+    &--open {
+        max-height: 500px;
+        border-radius: 5px;
+        & .drop-item__header {
+            border-radius: 5px;
+        }
+        & .drop-item__chevron {
+            transform: rotate(-0.5turn)
+        }
+    }
+    
+    &__header {
+        @include p.absolute-position(54px);
+        @include p.header-display(0 20px 0 15px);
+        background-color: p.$main-color;
+        border-radius: p.$item-radius;
+        cursor: pointer;
+        @include p.drop-transition(border-radius);
+    }
+    &__title {
+        @include p.text-style(white, 700, 24px);
+    }
+    &__chevron {
+        @include p.drop-transition(transform);
+    }
+
+    &__content {
+        width: 100%; height: 100%;
+        box-sizing: border-box;
+        background-color: p.$drop-bg-color;
+        @include p.text-style(black, 400, 18px);
+        padding: 70px 20px 20px;
+    }
+}

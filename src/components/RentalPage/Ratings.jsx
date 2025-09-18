@@ -1,13 +1,14 @@
-import "/src/styles/pages/RentalPage/Ratings.scss"
+import "/src/styles/components/RentalPage/Ratings.scss"
 
-export default function Ratings() {
+export default function Ratings({ rating }) {
     return (
         <div className="ratings">
-            <span className="ratings__star ratings__star--active"></span>
-            <span className="ratings__star ratings__star--active" />
-            <span className="ratings__star ratings__star--active" />
-            <span className="ratings__star" />
-            <span className="ratings__star" />
+            {Array.from({ length: 5 }, (_, i) =>
+                <span
+                    key={i}
+                    className={`ratings__star ${i < Number(rating) ? "ratings__star--active" : null}`}
+                />
+            )}
         </div>
     )
 }

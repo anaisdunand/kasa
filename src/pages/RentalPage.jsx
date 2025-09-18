@@ -1,24 +1,39 @@
-import background from "/src/assets/rental-banner.jpg"
-import "/src/styles/pages/RentalPage/index.scss"
+import { useParams, Navigate } from "react-router"
+import "/src/styles/pages/RentalPage.scss"
 
 import Banner from "/src/components/shared/Banner"
-import RentalHeader from "/src/components/RentalPage/RentalHeader"
+import Header from "/src/components/shared/Header"
 import DropItem from "/src/components/shared/DropItem"
 
-export default function RentalPage() {
+import TagsList from "/src/components/RentalPage/TagsList"
+import HostCard from "/src/components/RentalPage/HostCard"
+import Ratings from "/src/components/RentalPage/Ratings"
+
+export default function RentalPage({ rentals }) {
+    const { id } = useParams()
+    const rental = rentals.find((r) => r.id === id)
+
+    if(!rental) {
+        return <Navigate to="/kasa/error" />
+    }
+
     return (
         <section className="rental">
-            <Banner modifier={"bigger"} src={background} alt={"d'intérieur"}>
-                <div className="banner__nav">
-                    <button className="banner__button" />
-                    <span className="banner__index">1/4</span>
-                    <button className="banner__button banner__button--right" />
+            <Banner pictures={rental.pictures} modifier={"bigger"} />
+            <Header>
+                <div>
+                    <h1 className="header__title">{rental.title}</h1>
+                    <p className="header__location">{rental.location}</p>
+                    <TagsList tags={rental.tags} />
                 </div>
-            </Banner>
-            <RentalHeader />
+                <div>
+                    <HostCard host={rental.host} />
+                    <Ratings rating={rental.rating} />
+                </div>
+            </Header>
             <div className="rental__content">
-                <DropItem title="Description" content="contenu" />
-                <DropItem title="Équipements" content="contenu" />
+                <DropItem title="Description" content={rental.description} />
+                <DropItem title="Équipements" content={rental.equipments} />
             </div>
         </section>
     )

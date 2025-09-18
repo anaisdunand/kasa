@@ -1,11 +1,10 @@
-import avatar from "/src/assets/profile-pic.jpg"
-import "/src/styles/pages/RentalPage/HostCard.scss"
+import "/src/styles/components/RentalPage/HostCard.scss"
 
-export default function HostCard() {
+export default function HostCard({ host }) {
     return (
         <div className="host-card">
-            <p className="host-card__name">Alexandre Dumas</p>
-            <img className="host-card__avatar" src={avatar} alt="Photo de l'hôte" />
+            <p className="host-card__name">{host.name}</p>
+            <img className="host-card__avatar" src={host.picture} alt="Photo de l'hôte" />
         </div>
     )
 }
