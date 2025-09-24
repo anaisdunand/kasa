@@ -1,15 +1,33 @@
-@use "/src/styles/parameters.scss" as p;
+@use "/src/styles/variables" as v;
+@use "/src/styles/mixins" as m;
 
 .footer {
-    display: flex;
+    height: 209px;
+    @include m.flex(space-between, center);
     flex-direction: column;
-    align-items: center;
-    gap: 40px;
     background: black;
-    padding: 66px 0 29px;
-    margin-top: 50px;
+    box-sizing: border-box;
+    padding: 66px 0 57px;
+
+    @media (min-width: 768px) {
+        padding-bottom: 43px;
+    }
+    @media (min-width: 1024px) {
+        padding-bottom: 29px;
+    }
 
     &__copyright {
-        @include p.text-style(white, 500, 24px);
+        @include m.text-style(white, 500, 12px);
+        text-align: center;
+
+        @media (max-width: 767px) {
+            width: 130px;
+        }
+        @media (min-width: 768px) {
+            font-size: 18px;
+        }
+        @media (min-width: 1024px) {
+            font-size: 24px;
+        }
     }
 }

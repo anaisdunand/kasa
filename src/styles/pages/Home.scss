@@ -1,16 +1,36 @@
-@use "/src/styles/parameters" as p;
+@use "/src/styles/variables" as v;
+@use "/src/styles/mixins" as m;
 
 .homepage {
-    display: flex;
-    flex-direction: column;
-    gap: 38px;
+    gap: 22px;
+
+    @media (min-width: 1024px) {
+        gap: 26px;
+    }
+    @media (min-width: 1440px) {
+        gap: 38px;
+    }
 
     &__rentals {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 50px 60px;
-        background-color: #F6F6F6;
-        border-radius: p.$main-radius;
-        padding: 56px 50px 50px;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 22px;
+        background-color: white;
+        @include m.mobile-content-width;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+        @media (min-width: 1440px) {
+            gap: 50px 60px;
+            border-radius: v.$block-radius;
+            background-color: #F6F6F6;
+            padding: 56px 50px 50px;
+        }
     }
 }

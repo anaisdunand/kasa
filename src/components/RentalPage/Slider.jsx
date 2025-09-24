@@ -1,7 +1,8 @@
 import { useState } from "react"
-import "/src/styles/components/shared/Slider.scss"
+import "/src/styles/components/RentalPage/Slider.scss"
 
-export default function Slider({ total, pictures }) {
+export default function Slider({ pictures }) {
+    const total = pictures.length
     const [currentIndex, setCurrentIndex] = useState(0)
         
     const prevSlide = (() => {
@@ -17,22 +18,26 @@ export default function Slider({ total, pictures }) {
 
     return (
         <div className="slider">
-            <div
-                className="slider__track"
+            <div className="slider__track"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
                 {pictures.map((pic, i) =>
-                    <img key={i} className="slider__image" src={pic} alt={`Slide ${i}`} />
+                    <img key={i}
+                        className="slider__image"
+                        src={pic}
+                        alt={`Photo du logement - ${i + 1}/${total}`}
+                    />
                 )}
             </div>
             <div className="slider__nav">
                 <button className="slider__button" onClick={prevSlide} />
-                <span className="slider__index">{currentIndex + 1}/{total}</span>
-                <button
-                    className="slider__button slider__button--right"
+                <span className="slider__index">
+                    {currentIndex + 1}/{total}
+                </span>
+                <button className="slider__button slider__button--right"
                     onClick={nextSlide}
                 />
             </div>
-        </div>   
+        </div>
     )
 }

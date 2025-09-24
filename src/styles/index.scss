@@ -1,9 +1,14 @@
-@use "/src/styles/parameters" as p;
+@use "/src/styles/variables" as v;
+@use "/src/styles/mixins" as m;
 
 // Reset CSS
 body, h1, h2, p, figure, button, ul {
     padding: 0;
     margin: 0;
+}
+
+a {
+    text-decoration: none;
 }
 
 button {
@@ -19,6 +24,29 @@ body {
     font-family: "Montserrat";
 }
 
-main {
-    margin: p.$content-margin;
+#root {
+    margin-top: 20px;
+
+    @media (min-width: 768px) {
+        margin-top: 35px;
+    }
+    @media (min-width: 1024px) {
+        margin-top: 45px;
+    }
+}
+
+section {
+    @include m.flex(start, center);
+    flex-direction: column;
+    margin: 27px 20px;
+
+    @media (min-width: 768px) {
+        margin: 35px;
+    }
+    @media (min-width: 1024px) {
+        margin: 50px;
+    }
+    @media (min-width: 1440px) {
+        margin: 50px 100px;
+    }
 }

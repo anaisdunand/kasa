@@ -6,7 +6,7 @@ export default function DropItem({ title, content }) {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <article className={`drop-item ${isOpen && "drop-item--open"}`}>
+        <article className={`drop-item ${isOpen ? "drop-item--open" : ""}`}>
             <header className="drop-item__header" onClick={() => isOpen ? setIsOpen(false) : setIsOpen(true)}>
                 <h2 className="drop-item__title">{title}</h2>
                 <img className="drop-item__chevron" src={chevron} />

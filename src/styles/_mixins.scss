@@ -1,0 +1,65 @@
+@use "/src/styles/variables" as v;
+
+@mixin text-style($color, $weight, $size) {
+    color: $color;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: 142.6%;
+}
+
+@mixin image-fit($size) {
+    object-fit: cover;
+    width: $size; height: $size;
+}
+
+@mixin position-absolute($height) {
+    width: 100%; height: $height;
+    position: absolute;
+    top: 0;
+    box-sizing: border-box;
+}
+
+@mixin position-relative($height) {
+    width: 100%; height: $height;
+    position: relative;
+}
+
+@mixin flex($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin banner-display($height) {
+    @include position-relative($height);
+    @include flex(center, center);
+    border-radius: v.$item-radius;
+    overflow: hidden;
+
+    @media (max-width: 767px) {
+        max-width: 600px;
+    }
+}
+
+@mixin banner-layer($justify) {
+    @include position-absolute(100%);
+    @include flex($justify, center)
+}
+
+@mixin banner-modifier($brightness, $width) {
+    filter: brightness($brightness);
+
+    @media (max-width: 767px) {
+        width: $width; height: auto;
+    }
+}
+
+@mixin drop-transition($property) {
+    transition: $property 400ms ease-in-out;
+}
+
+@mixin mobile-content-width {
+    @media (max-width: 767px) {
+        max-width: 492px;
+    }
+}

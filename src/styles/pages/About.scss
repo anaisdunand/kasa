@@ -1,9 +1,37 @@
+@use "/src/styles/variables" as v;
+@use "/src/styles/mixins" as m;
+
 .about {
+    gap: 19px;
+    margin: 19px 20px;
+
+    @media (min-width: 768px) {
+        gap: 25px;
+        margin: 25px 30px;
+    }
+    @media (min-width: 1024px) {
+        gap: 38px;
+        margin: 38px 50px;
+    }
+    @media (min-width: 1440px) {
+        margin: 38px 100px;
+    }
+    
     &__infos {
-        display: flex;
+        @include m.flex(start, center);
         flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        margin: 38px 108px;
+        gap: 20px;
+        @include m.mobile-content-width;
+       
+        @media (min-width: 768px) {
+            gap: 30px;
+            margin: 0 64px;
+        }
+        @media (min-width: 1024px) {
+            margin: 0 83px;
+        }
+        @media (min-width: 1440px) {
+            margin: 0 108px;
+        }
     }
 }

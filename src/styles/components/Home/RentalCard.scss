@@ -1,31 +1,42 @@
-@use "/src/styles/parameters" as p;
+@use "/src/styles/variables" as v;
+@use "/src/styles/mixins" as m;
 
 .card {
-    position: relative;
-    width: 100%; height: 340px;
-    border-radius: p.$item-radius;
+    @include m.position-relative(255px);
+    border-radius: v.$item-radius;
     overflow: hidden;
     cursor: pointer;
 
+    @media (min-width: 768px) {
+        height: 300px;
+    }
+    @media (min-width: 1024px) {
+        height: 340px;
+    }
+
     &__image {
-        @include p.image-fit(100%);
+        @include m.image-fit(100%);
     }
 
     &__link {
-        @include p.absolute-position(100%);
-        display: flex;
-        align-items: flex-end;
+        @include m.position-absolute(100%);
+        @include m.flex(flex-start, flex-end);
         background: linear-gradient(180deg,
             rgba(255, 255, 255, 0) 0%,
             rgba(10, 10, 10, 0) 42%,
             rgba(4, 4, 4, 0.41) 100%,
             rgba(0, 0, 0, 1) 100%
         );
-        text-decoration: none;
         padding: 20px;
     }
     &__title {
-        width: 55%;
-        @include p.text-style(white, 700, 18px);
+        max-width: 55%;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        @include m.text-style(white, 700, 18px);
     }
 }

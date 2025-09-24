@@ -1,18 +1,32 @@
-@use "/src/styles/parameters" as p;
+@use "/src/styles/variables" as v;
+@use "/src/styles/mixins" as m;
 
 .host-card {
-    max-width: 196px;
-    display: flex;
-    align-items: center;
+    @include m.flex(start, center);
     gap: 10px;
 
     &__name {
-        @include p.text-style(p.$main-color, 500, 18px);
+        @include m.text-style(v.$main-color, 500, 12px);
         text-align: end;
+        white-space: pre-line;
+
+        @media (min-width: 768px) {
+            font-size: 16px;
+        }
+        @media (min-width: 1024px) {
+            font-size: 18px;
+        }
     }
 
     &__avatar {
-        @include p.image-fit(64px);
+        @include m.image-fit(32px);
         border-radius: 50%;
+
+        @media (min-width: 768px) {
+            width: 56px; height: 56px;
+        }
+        @media (min-width: 1024px) {
+            width: 64px; height: 64px;
+        }
     }
 }

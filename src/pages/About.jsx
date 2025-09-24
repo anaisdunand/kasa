@@ -8,7 +8,7 @@ import DropItem from "/src/components/shared/DropItem"
 export default function About() {
     return (
         <section className="about">
-            <Banner image={banner} modifier={"dark"} />
+            <Banner src={banner} shade={"dark"} />
             <div className="about__infos">
                 {about.map(item => (
                     <DropItem

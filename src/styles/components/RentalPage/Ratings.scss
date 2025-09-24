@@ -1,17 +1,26 @@
-@use "/src/styles/parameters" as p;
+@use "/src/styles/variables" as v;
 
 .ratings {
-    width: 196px;
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    gap: 2px;
+
+    @media (min-width: 1024px) {
+        gap: 4px;
+    }
     
     &__star {
-        width: 36px; height: 36px;
-        display: inline-block;
-        background: url("/src/assets/star.png");
+        width: 18px; height: 18px;
+        background: url("/src/assets/star.png") center/cover no-repeat;
+
+        @media (min-width: 768px) {
+            width: 30px; height: 30px;
+        }
+        @media (min-width: 1024px) {
+            width: 36px; height: 36px;
+        }
+
         &--active {
-            background: url("/src/assets/star-active.png");
+            background: url("/src/assets/star-active.png") center/cover no-repeat;
         }
     }
 }

@@ -7,7 +7,7 @@ import RentalCard from "/src/components/Home/RentalCard"
 export default function Home({ rentals }) {
     return (
         <section className="homepage">
-            <Banner image={banner} modifier={"darker"}>
+            <Banner src={banner} shade={"darker"}>
                 <h1 className="banner__title">Chez vous, partout et ailleurs</h1>
             </Banner>
             <div className="homepage__rentals">

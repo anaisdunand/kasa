@@ -1,28 +1,52 @@
-@use "/src/styles/parameters" as p;
+@use "/src/styles/variables" as v;
+@use "/src/styles/mixins" as m;
 
 .header {
-    @include p.header-display(30px 0 24px);
-    &--main {
-        padding: 45px 0 50px;
-        margin: p.$content-margin;
+    @include m.flex(space-between, center);
+    gap: 10px;
+    margin: 0 20px;
+
+    @media (min-width: 768px) {
+        margin: 0 35px;
+    }
+    @media (min-width: 1024px) {
+        margin: 0 50px;
+    }
+    @media (min-width: 1440px) {
+        margin: 0 100px;
     }
 
-    &__nav {
-        display: flex;
-        gap: 63px;
-    }
-    &__link {
-        @include p.text-style(black, 500, 24px);
-        text-decoration: none;
-        &.active {
-            text-decoration: underline;
+    &__logo {
+        width: 145px;
+        
+        @media (min-width: 768px) {
+            width: 190px;
+        }
+        @media (min-width: 1024px) {
+            width: 210px;
         }
     }
 
-    &__title {
-        @include p.text-style(p.$main-color, 500, 36px);
+    &__nav {
+        min-width: 125px; width: 145px;
+        @include m.flex(space-between, center);
+
+        @media (min-width: 768px) {
+            width: 260px;
+        }
     }
-    &__location {
-        @include p.text-style(black, 500, 18px);
+    &__link {
+        @include m.text-style(black, 500, 12px);
+
+        @media (max-width: 767px) {
+            text-transform: uppercase;
+        }
+        @media (min-width: 768px) {
+            font-size: 24px;
+        }
+
+        &--active {
+            text-decoration: underline;
+        }
     }
 }

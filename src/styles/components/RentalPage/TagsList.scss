@@ -1,17 +1,29 @@
-@use "/src/styles/parameters" as p;
+@use "/src/styles/variables" as v;
+@use "/src/styles/mixins" as m;
 
 .tags-list {
     display: flex;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
+
+    @media (min-width: 768px) {
+        margin-top: 20px;
+    }
 
     &__item {
-        min-width: 115px;
+        min-width: 84px;
         box-sizing: border-box;
-        background-color: p.$main-color;
-        border-radius: p.$item-radius;
-        @include p.text-style(white, 700, 14px);
+        background-color: v.$main-color;
+        border-radius: v.$small-item-radius;
+        @include m.text-style(white, 700, 10px);
         text-align: center;
-        padding: 3px 6px;
+        padding: 2px 4px;
+
+        @media (min-width: 768px) {
+            min-width: 115px;
+            font-size: 14px;
+            border-radius: v.$item-radius;
+            padding: 3px 6px;
+        }
     }
 }

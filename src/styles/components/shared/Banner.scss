@@ -1,31 +1,58 @@
-@use "/src/styles/parameters.scss" as p;
+@use "/src/styles/variables" as v;
+@use "/src/styles/mixins" as m;
 
 .banner {
-    @include p.banner-display(p.$banner-height);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    &--dark {
-        @include p.banner-shade(70%);
+    @include m.banner-display(v.$mobile-banner-height);
+    
+    @media (min-width: 768px) {
+        height: 150px;
     }
-    &--darker {
-        @include p.banner-shade(40%);
+    @media (min-width: 1024px) {
+        height: v.$banner-height;
+        border-radius: v.$block-radius;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
+
     &--bigger {
-        height: p.$slider-height;
+        height: v.$mobile-slider-height;
+
+        @media (min-width: 768px) {
+            height: v.$slider-height;
+        }
     }
 
     &__image {
-        @include p.image-fit(100%);
+        @include m.image-fit(100%);
+
+        &--dark {
+            @include m.banner-modifier(70%, 110%);
+        }
+        &--darker {
+            @include m.banner-modifier(40%, 190%);
+        }
     }
 
     &__title {
-        @include p.banner-layer(center);
-        @include p.text-style(white, 700, 48px);
-        text-shadow:
-            1px 1px 1px black,
-            -1px 1px 1px black,
-            1px -1px 1px black,
-            -1px -1px 1px black,
-            0px 5px 4px rgba(0, 0, 0, 0.3)
-        ;
+        @include m.banner-layer(center);
+        @include m.text-style(white, 700, 24px);
+
+        @media (max-width: 767px) {
+            max-width: 230px;
+            left: 16px;
+            line-height: 110%;
+        }
+        @media (min-width: 768px) {
+            font-size: 32px;
+        }
+        @media (min-width: 1024px) {
+            font-size: 48px;
+            text-shadow:
+                1px 1px 1px black,
+                -1px 1px 1px black,
+                1px -1px 1px black,
+                -1px -1px 1px black,
+                0px 5px 4px rgba(0, 0, 0, 0.3)
+            ;
+        }
     }
 }

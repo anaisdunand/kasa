@@ -1,16 +1,27 @@
-@use "/src/styles/parameters" as p;
+@use "/src/styles/variables" as v;
+@use "/src/styles/mixins" as m;
 
 .drop-item {
-    position: relative;
-    width: 100%; max-height: 54px;
-    border-radius: p.$item-radius;
+    max-height: 30px;
+    @include m.position-relative(100%);
+    border-radius: v.$small-item-radius;
     overflow: hidden;
-    @include p.drop-transition(all);
+    @include m.drop-transition(all);
+
+    @media (min-width: 768px)  {
+        max-height: 40px;
+    }
+    @media (min-width: 1024px) {
+        max-height: 54px;
+        border-radius: v.$small-item-radius;
+    }
+
     &--open {
         max-height: 500px;
-        border-radius: 5px;
+        border-radius: v.$small-item-radius;
+
         & .drop-item__header {
-            border-radius: 5px;
+            border-radius: v.$small-item-radius;
         }
         & .drop-item__chevron {
             transform: rotate(-0.5turn)
@@ -18,25 +29,59 @@
     }
     
     &__header {
-        @include p.absolute-position(54px);
-        @include p.header-display(0 20px 0 15px);
-        background-color: p.$main-color;
-        border-radius: p.$item-radius;
+        @include m.position-absolute(30px);
+        @include m.flex(space-between, center);
+        background-color: v.$main-color;
+        border-radius: v.$small-item-radius;
+        padding: 0 12px 0 10px;
         cursor: pointer;
-        @include p.drop-transition(border-radius);
+        @include m.drop-transition(border-radius);
+
+        @media (min-width: 768px) {
+            height: 40px;
+            padding: 0 24px 0 16px;
+        }
+        @media (min-width: 1024px) {
+            height: 54px;
+            border-radius: v.$item-radius;
+        }
     }
     &__title {
-        @include p.text-style(white, 700, 24px);
+        @include m.text-style(white, 700, 13px);
+
+        @media (min-width: 768px) {
+            font-size: 17px;
+        }
+        @media (min-width: 1024px) {
+            font-size: 24px;
+        }
     }
     &__chevron {
-        @include p.drop-transition(transform);
+        width: 16px; height: 9px;
+        @include m.drop-transition(transform);
+
+        @media (min-width: 768px) {
+            width: 20px; height: 11px;
+        }
+        @media (min-width: 1024px) {
+            width: 24px; height: 14px;
+        }
     }
 
     &__content {
         width: 100%; height: 100%;
         box-sizing: border-box;
-        background-color: p.$drop-bg-color;
-        @include p.text-style(black, 400, 18px);
-        padding: 70px 20px 20px;
+        background-color: v.$drop-bg-color;
+        @include m.text-style(black, 400, 12px);
+        padding: 43px 20px 19px;
+
+        @media (min-width: 768px) {
+            font-size: 16px;
+            padding: 53px 20px 20px;
+        }
+        @media (min-width: 1024px) {
+            font-size: 18px;
+            padding-top: 70px;
+        }
     }
 }

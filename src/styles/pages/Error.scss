@@ -1,21 +1,47 @@
-@use "/src/styles/parameters" as p;
+@use "/src/styles/variables" as v;
+@use "/src/styles/mixins" as m;
 
 .error {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
     &__title {
-        @include p.text-style(p.$main-color, 700, 288px);
-        line-height: 1;
+        @include m.text-style(v.$main-color, 700, 96px);
+        padding: 67px 0 94px;
+
+        @media (min-width: 768px) {
+            font-size: 163px;
+            padding-top: 59px;
+        }
+        @media (min-width: 1024px) {
+            font-size: 288px;
+            padding: 15px 0 65px;
+        }
     }
 
     &__subtitle {
-        @include p.text-style(p.$main-color, 500, 36px);
-        padding: 140px 0;
+        width: 80%;
+        @include m.text-style(v.$main-color, 500, 18px);
+        text-align: center;
+
+        @media (min-width: 768px) {
+            width: 65%;
+            font-size: 30px;
+        }
+        @media (min-width: 1024px) {
+            width: auto;
+            font-size: 36px;
+        }
     }
 
     &__link {
-        @include p.text-style(black, 500, 18px);
+        @include m.text-style(black, 500, 14px);
+        text-decoration: underline;
+        padding: 113px 0 86px;
+
+        @media (min-width: 768px) {
+            font-size: 18px;
+            padding: 139px 0 104px;
+        }
+        @media (min-width: 1024px) {
+            padding-bottom: 89px;
+        }
     }
 }
