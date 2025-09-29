@@ -8,7 +8,9 @@ export default function Home({ rentals }) {
     return (
         <section className="homepage">
             <Banner src={banner} shade={"darker"}>
-                <h1 className="banner__title">Chez vous, partout et ailleurs</h1>
+                <h1 className="banner__title">
+                    {"Chez vous,\npartout et ailleurs"}
+                </h1>
             </Banner>
             <div className="homepage__rentals">
                 {rentals.map(rental =>

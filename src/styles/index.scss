@@ -25,6 +25,9 @@ body {
 }
 
 #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     margin-top: 20px;
 
     @media (min-width: 768px) {
@@ -33,6 +36,10 @@ body {
     @media (min-width: 1024px) {
         margin-top: 45px;
     }
+}
+
+main {
+    flex: 1;
 }
 
 section {

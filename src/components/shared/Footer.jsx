@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <footer className="footer">
             <img src={logo} alt="Logo de Kasa" />
-            <p className="footer__copyright">© 2020 Kasa. All rights reserved</p>
+            <p className="footer__copyright">{"© 2020 Kasa. All\nrights reserved"}</p>
         </footer>
     )
 }

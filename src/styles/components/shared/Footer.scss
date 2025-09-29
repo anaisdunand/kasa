@@ -21,7 +21,7 @@
         text-align: center;
 
         @media (max-width: 767px) {
-            width: 130px;
+            white-space: pre-line;
         }
         @media (min-width: 768px) {
             font-size: 18px;

@@ -12,7 +12,10 @@
     &__track {
         width: 100%; height: 100%;
         display: flex;
-        transition: transform 600ms ease-in-out;
+
+        &--transition {
+            transition: transform 600ms ease-in-out;
+        }
     }
     &__image {
         @include m.image-fit(100%);
